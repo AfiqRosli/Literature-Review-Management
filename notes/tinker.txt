@@ -1,0 +1,4 @@
+php artisan migrate:fresh
+php artisan tinker
+$literatureReviews = factory(App\LiteratureReview::class, 5)->create();
+$literatureReviews->each( function($literatureReview) { factory(App\Quote::class, 3)->create(['literature_review_id' => $literatureReview->id]); })

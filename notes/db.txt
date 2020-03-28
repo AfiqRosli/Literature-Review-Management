@@ -1,0 +1,15 @@
+1 lit rev -> many quotes
+
+lit rev:
+-id
+-year
+-type
+-topic
+-link
+
+quote:
+-id
+-lit rev id
+-quote
+
+https://www.youtube.com/watch?v=5W_x6opCvpQ

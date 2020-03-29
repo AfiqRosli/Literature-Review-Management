@@ -21,3 +21,4 @@ Route::get('/literature-review', 'LiteratureReviewController@index');
 Route::post('/literature-review', 'LiteratureReviewController@store');
 Route::get('/quote', 'QuoteController@index');
 Route::post('/quote', 'QuoteController@store');
+Route::get('/backup', 'BackupController@backup');

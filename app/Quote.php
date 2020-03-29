@@ -14,4 +14,5 @@ class Quote extends Model
         'quote',
         'page'
     ];
+
 }

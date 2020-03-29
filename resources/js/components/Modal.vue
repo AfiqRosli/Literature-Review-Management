@@ -29,6 +29,7 @@
         methods: {
             submit() {
                 this.$emit('submit')
+                this.$root.$emit('forceRerender')
             }
         }
     }

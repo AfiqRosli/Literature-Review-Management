@@ -14,11 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('/literature-review', 'LiteratureReviewController@index');
 Route::post('/literature-review', 'LiteratureReviewController@store');
 Route::get('/quote', 'QuoteController@index');
 Route::post('/quote', 'QuoteController@store');
-Route::get('/backup', 'BackupController@backup');
+Route::get('/backup', 'BackupController@backup')->name('backup');
+Route::get('/restore', 'BackupController@restore')->name('restore');

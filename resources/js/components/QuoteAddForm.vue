@@ -32,7 +32,6 @@
                 }).then( response => {
                     console.log(response)
                     $('#addQuoteModal').modal('hide')
-                    location.reload();
                 }).finally(
                     axios.get('/quote').then(response => app.quotes = response.data)
                 )

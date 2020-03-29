@@ -28,7 +28,7 @@
             </div>
         </div>
 
-        <quote v-for="quote in filterByLiteratureReview(quotes, literature_review_id)" v-bind:key="quote.id"
+        <quote v-for="quote in filterByLiteratureReview(quotes, literature_review_id)" :key="quote.id"
             v-bind:literature_review_id="literature_review_id" v-bind:quote="quote.quote" v-bind:page="quote.page"></quote>
     </div>
 </template>
@@ -49,8 +49,8 @@
                 sharedObject: store,
             }
         },
-        mounted() {
-            // axios.get('/quote').then(response => this.quotes = response.data)
+        created() {
+            this.$root.$on('forceRerender', this.forceRerender)
         },
         methods: {
             filterByLiteratureReview(quotes, literature_review_id) {
@@ -59,6 +59,9 @@
             updateLitIdForAddingQuote(value) {
                 this.sharedObject.setLiteratureReviewIdAction(value)
             },
+            forceRerender() {
+                axios.get('/quote').then(response => this.quotes = response.data)
+            }
         }
     }
 </script>

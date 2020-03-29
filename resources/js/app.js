@@ -32,7 +32,7 @@ Vue.component('quote-add-form', require('./components/QuoteAddForm.vue').default
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 export var store = {
-    debug: true,
+    debug: false,
     state: {
         literature_review_id: ''
     },
@@ -63,8 +63,5 @@ export const app = new Vue({
             this.literatureReviews = first_response.data
             this.quotes = second_response.data
         }))
-
-        // axios.get('/literature-review').then(response => this.literatureReviews = response.data)
-        // axios.get('/quote').then(response => this.quotes = response.data)
     }
 });

@@ -1987,7 +1987,8 @@ __webpack_require__.r(__webpack_exports__);
       sharedObject: _app_js__WEBPACK_IMPORTED_MODULE_0__["store"]
     };
   },
-  mounted: function mounted() {// axios.get('/quote').then(response => this.quotes = response.data)
+  created: function created() {
+    this.$root.$on('forceRerender', this.forceRerender);
   },
   methods: {
     filterByLiteratureReview: function filterByLiteratureReview(quotes, literature_review_id) {
@@ -1997,6 +1998,13 @@ __webpack_require__.r(__webpack_exports__);
     },
     updateLitIdForAddingQuote: function updateLitIdForAddingQuote(value) {
       this.sharedObject.setLiteratureReviewIdAction(value);
+    },
+    forceRerender: function forceRerender() {
+      var _this = this;
+
+      axios.get('/quote').then(function (response) {
+        return _this.quotes = response.data;
+      });
     }
   }
 });
@@ -2109,6 +2117,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     submit: function submit() {
       this.$emit('submit');
+      this.$root.$emit('forceRerender');
     }
   }
 });
@@ -2183,7 +2192,6 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         console.log(response);
         $('#addQuoteModal').modal('hide');
-        location.reload();
       })["finally"](axios.get('/quote').then(function (response) {
         return _app_js__WEBPACK_IMPORTED_MODULE_0__["app"].quotes = response.data;
       }));
@@ -50948,7 +50956,7 @@ Vue.component('quote-add-form', __webpack_require__(/*! ./components/QuoteAddFor
  */
 
 var store = {
-  debug: true,
+  debug: false,
   state: {
     literature_review_id: ''
   },
@@ -50975,8 +50983,7 @@ var app = new Vue({
     axios.all([axios.get('/literature-review'), axios.get('/quote')]).then(axios.spread(function (first_response, second_response) {
       _this.literatureReviews = first_response.data;
       _this.quotes = second_response.data;
-    })); // axios.get('/literature-review').then(response => this.literatureReviews = response.data)
-    // axios.get('/quote').then(response => this.quotes = response.data)
+    }));
   }
 });
 

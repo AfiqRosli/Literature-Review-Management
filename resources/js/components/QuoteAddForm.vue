@@ -30,9 +30,11 @@
                     quote: this.quote,
                     page: this.page
                 }).then( response => {
-                    console.log(response)
+                    console.log('Quote Submitted')
                     $('#addQuoteModal').modal('hide')
                 }).finally(
+                    this.quote = '',
+                    this.page = '',
                     axios.get('/quote').then(response => app.quotes = response.data)
                 )
             }

@@ -44,8 +44,13 @@
                     year: this.year,
                     link: this.link,
                 }).then( response => {
+                    console.log('Literature Review Submitted')
                     $('#addSourceModal').modal('hide')
                 }).finally(
+                    this.topic = '',
+                    this.type = '',
+                    this.year = '',
+                    this.link = '',
                     axios.get('/literature-review').then(response => app.literatureReviews = response.data)
                 )
             }

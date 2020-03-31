@@ -2065,8 +2065,9 @@ __webpack_require__.r(__webpack_exports__);
         year: this.year,
         link: this.link
       }).then(function (response) {
+        console.log('Literature Review Submitted');
         $('#addSourceModal').modal('hide');
-      })["finally"](axios.get('/literature-review').then(function (response) {
+      })["finally"](this.topic = '', this.type = '', this.year = '', this.link = '', axios.get('/literature-review').then(function (response) {
         return _app_js__WEBPACK_IMPORTED_MODULE_0__["app"].literatureReviews = response.data;
       }));
     }
@@ -2190,9 +2191,9 @@ __webpack_require__.r(__webpack_exports__);
         quote: this.quote,
         page: this.page
       }).then(function (response) {
-        console.log(response);
+        console.log('Quote Submitted');
         $('#addQuoteModal').modal('hide');
-      })["finally"](axios.get('/quote').then(function (response) {
+      })["finally"](this.quote = '', this.page = '', axios.get('/quote').then(function (response) {
         return _app_js__WEBPACK_IMPORTED_MODULE_0__["app"].quotes = response.data;
       }));
     }

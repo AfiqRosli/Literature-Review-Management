@@ -38271,88 +38271,101 @@ var render = function() {
     "div",
     { staticClass: "literature-card mb-5 rounded" },
     [
-      _c("div", { staticClass: "row no-gutters literature-card__title p-2" }, [
-        _c("div", { staticClass: "col-1" }, [
-          _c("div", { staticClass: "row no-gutters h-100" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "row no-gutters sticky-top literature-card__title p-2 m-0"
+        },
+        [
+          _c("div", { staticClass: "col-1" }, [
+            _c("div", { staticClass: "row no-gutters h-100" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "col align-items-center align-self-center text-center"
+                },
+                [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(_vm.loop) +
+                      "\n                "
+                  )
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("p", { staticClass: "m-2" }, [
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("Topic:")
+              ]),
+              _vm._v(" " + _vm._s(_vm.topic))
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "m-2" }, [
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("Type:")
+              ]),
+              _vm._v(" " + _vm._s(_vm.type))
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "m-2" }, [
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("Year:")
+              ]),
+              _vm._v(" " + _vm._s(_vm.year))
+            ]),
+            _vm._v(" "),
             _c(
-              "div",
+              "p",
               {
-                staticClass:
-                  "col align-items-center align-self-center text-center"
+                staticClass: "m-2",
+                staticStyle: { "overflow-wrap": "break-word" }
               },
               [
-                _vm._v(
-                  "\n                    " +
-                    _vm._s(_vm.loop) +
-                    "\n                "
-                )
+                _c("span", { staticClass: "font-weight-bold" }, [
+                  _vm._v("Link:")
+                ]),
+                _vm._v(" "),
+                _c("a", { attrs: { href: _vm.link, target: "_blank" } }, [
+                  _vm._v(_vm._s(_vm.link))
+                ])
               ]
             )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col" }, [
-          _c("p", { staticClass: "m-2" }, [
-            _c("span", { staticClass: "font-weight-bold" }, [_vm._v("Topic:")]),
-            _vm._v(" " + _vm._s(_vm.topic))
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "m-2" }, [
-            _c("span", { staticClass: "font-weight-bold" }, [_vm._v("Type:")]),
-            _vm._v(" " + _vm._s(_vm.type))
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "m-2" }, [
-            _c("span", { staticClass: "font-weight-bold" }, [_vm._v("Year:")]),
-            _vm._v(" " + _vm._s(_vm.year))
           ]),
           _vm._v(" "),
           _c(
-            "p",
+            "div",
             {
-              staticClass: "m-2",
-              staticStyle: { "overflow-wrap": "break-word" }
+              staticClass:
+                "col-1 align-items-center align-self-center text-center"
             },
             [
-              _c("span", { staticClass: "font-weight-bold" }, [
-                _vm._v("Link:")
-              ]),
-              _vm._v(" "),
-              _c("a", { attrs: { href: _vm.link, target: "_blank" } }, [
-                _vm._v(_vm._s(_vm.link))
-              ])
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary rounded-circle",
+                  attrs: {
+                    "data-toggle": "modal",
+                    "data-target": "#addQuoteModal"
+                  },
+                  on: {
+                    click: function($event) {
+                      return _vm.updateLitIdForAddingQuote(
+                        _vm.literature_review_id
+                      )
+                    }
+                  }
+                },
+                [_vm._v("+")]
+              )
             ]
           )
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "col-1 align-items-center align-self-center text-center"
-          },
-          [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-primary rounded-circle",
-                attrs: {
-                  "data-toggle": "modal",
-                  "data-target": "#addQuoteModal"
-                },
-                on: {
-                  click: function($event) {
-                    return _vm.updateLitIdForAddingQuote(
-                      _vm.literature_review_id
-                    )
-                  }
-                }
-              },
-              [_vm._v("+")]
-            )
-          ]
-        )
-      ]),
+        ]
+      ),
       _vm._v(" "),
       _vm.filterByLiteratureReview(_vm.quotes, _vm.literature_review_id)
         .length == 0

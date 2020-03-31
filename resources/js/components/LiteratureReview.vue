@@ -1,6 +1,6 @@
 <template>
     <div class="literature-card mb-5 rounded">
-        <div class="row no-gutters literature-card__title p-2">
+        <div class="row no-gutters sticky-top literature-card__title p-2 m-0">
             <div class="col-1">
                 <div class="row no-gutters h-100">
                     <div class="col align-items-center align-self-center text-center">

@@ -6748,7 +6748,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.literature-card {\n    background-color: #cfd6d8;\n}\n.literature-card__title {\n    background-color: lightblue;\n}\n", ""]);
+exports.push([module.i, "\n.literature-card {\n    background-color: #cfd6d8;\n}\n.literature-card__title {\n    background-color: lightblue;\n}\n.literature-card__empty-quote {\n    height: 60px;\n    line-height: 60px;\n    background-color: #cfd6d8;\n}\n.literature-card_word_break {\n    overflow-wrap: break-word;\n    word-break: break-all;\n}\n", ""]);
 
 // exports
 
@@ -38319,22 +38319,15 @@ var render = function() {
               _vm._v(" " + _vm._s(_vm.year))
             ]),
             _vm._v(" "),
-            _c(
-              "p",
-              {
-                staticClass: "m-2",
-                staticStyle: { "overflow-wrap": "break-word" }
-              },
-              [
-                _c("span", { staticClass: "font-weight-bold" }, [
-                  _vm._v("Link:")
-                ]),
-                _vm._v(" "),
-                _c("a", { attrs: { href: _vm.link, target: "_blank" } }, [
-                  _vm._v(_vm._s(_vm.link))
-                ])
-              ]
-            )
+            _c("p", { staticClass: "m-2 literature-card_word_break" }, [
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v("Link:")
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: _vm.link, target: "_blank" } }, [
+                _vm._v(_vm._s(_vm.link))
+              ])
+            ])
           ]),
           _vm._v(" "),
           _c(
@@ -38372,14 +38365,7 @@ var render = function() {
         ? _c("div", { staticClass: "row no-gutters" }, [
             _c(
               "div",
-              {
-                staticClass: "col text-center",
-                staticStyle: {
-                  height: "60px",
-                  "line-height": "60px",
-                  "background-color": "#cfd6d8"
-                }
-              },
+              { staticClass: "col text-center literature-card__empty-quote" },
               [_vm._v("\n            No quote(s) for this source\n        ")]
             )
           ])

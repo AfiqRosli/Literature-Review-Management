@@ -37,24 +37,18 @@ class BackupController extends Controller
     }
 
     public function restore() {
+        LiteratureReview::truncate();
+        Quote::truncate();
+
         $literatureReviews = LiteratureReview::on('mysql2')->get();
         $quotes = Quote::on('mysql2')->get();
 
         $literatureReviews->each(function($literatureReview) {
-            unset($literatureReview['created_at']);
-            unset($literatureReview['updated_at']);
-            unset($literatureReview['deleted_at']);
-            LiteratureReview::updateOrCreate(['id' => $literatureReview->id], $literatureReview->toArray());
+            LiteratureReview::create($literatureReview->toArray());
         });
 
         $quotes->each(function($quote) {
-            unset($quote['created_at']);
-            unset($quote['updated_at']);
-            unset($quote['deleted_at']);
-            Quote::updateOrCreate([
-                'id' => $quote->id,
-                'literature_review_id' => $quote->literature_review_id,
-            ], $quote->toArray());
+            Quote::create($quote->toArray());
         });
 
         Session::flash('restore_success', 'Database restored successfully updated');

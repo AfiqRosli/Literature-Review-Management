@@ -12,7 +12,7 @@
                 <p class="m-2"><span class="font-weight-bold">Topic:</span> {{ topic }}</p>
                 <p class="m-2"><span class="font-weight-bold">Type:</span> {{ type }}</p>
                 <p class="m-2"><span class="font-weight-bold">Year:</span> {{ year }}</p>
-                <p class="m-2" style="overflow-wrap: break-word;"><span class="font-weight-bold">Link:</span>
+                <p class="m-2 literature-card_word_break"><span class="font-weight-bold">Link:</span>
                     <a v-bind:href="link" target="_blank">{{ link }}</a>
                 </p>
             </div>
@@ -23,7 +23,7 @@
         </div>
 
         <div v-if="filterByLiteratureReview(quotes, literature_review_id).length == 0" class="row no-gutters">
-            <div class="col text-center" style="height: 60px; line-height: 60px; background-color: #cfd6d8;">
+            <div class="col text-center literature-card__empty-quote">
                 No quote(s) for this source
             </div>
         </div>
@@ -73,5 +73,16 @@
 
     .literature-card__title {
         background-color: lightblue;
+    }
+
+    .literature-card__empty-quote {
+        height: 60px;
+        line-height: 60px;
+        background-color: #cfd6d8;
+    }
+
+    .literature-card_word_break {
+        overflow-wrap: break-word;
+        word-break: break-all;
     }
 </style>

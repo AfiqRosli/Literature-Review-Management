@@ -24,10 +24,13 @@
             }
         },
         methods: {
+            removeWhiteSpaceExceptNewline(quote) {
+                return quote.replace(/[ \t]+/g, ' ')
+            },
             submit() {
                 axios.post('/quote', {
                     literature_review_id: this.sharedObject.state.literature_review_id,
-                    quote: this.quote,
+                    quote: this.removeWhiteSpaceExceptNewline(this.quote),
                     page: this.page
                 }).then( response => {
                     console.log('Quote Submitted')

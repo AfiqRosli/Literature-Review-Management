@@ -59,7 +59,11 @@ export const app = new Vue({
         axios.all([
             axios.get('/literature-review'),
             axios.get('/quote')
-        ]).then(axios.spread((first_response, second_response) => {
+        ],{
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        }).then(axios.spread((first_response, second_response) => {
             this.literatureReviews = first_response.data
             this.quotes = second_response.data
         }))

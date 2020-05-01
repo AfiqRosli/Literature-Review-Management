@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Literature Review Management</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
@@ -42,8 +43,6 @@
             <a href="{{route('backup')}}" type="button" class="btn btn-primary">Backup Data</a>
             <a href="{{route('restore')}}" type="button" class="btn btn-primary">Restore</a>
         </div>
-
-        {{-- <input type="text"> --}}
 
         <literature-review v-for="(literatureReview, index) in literatureReviews" v-bind:loop="index + 1"
             v-bind:key="literatureReview.id" v-bind:literature_review_id="literatureReview.id"
